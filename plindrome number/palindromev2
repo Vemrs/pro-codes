@@ -1,0 +1,32 @@
+#include <iostream>
+#include <cmath>
+#include <math.h>
+using namespace std;
+
+bool isPalindrome(int x) {
+    //complete the function
+    int b=x, compare=0;
+    int arr[10000];
+    int size = trunc(log10(x)) + 1;
+    int dcount=size;
+    for (int y=0; y<size; y++){
+        arr[y]=b%10;
+        b=(b-arr[y])/10;
+        compare += arr[y]*pow(10,(--dcount));
+    }
+    cout<<compare<<endl;
+    return compare==x;
+}
+
+int main() {
+    int n;
+    cin >>n;
+
+    if(isPalindrome(n)) {
+        cout <<n<<" is a palindrome";
+    }
+    else {
+        cout << n<<" is NOT a palindrome";
+    }
+    return 0;
+}
